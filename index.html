@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/fe72e1556a.js" crossorigin="anonymous"></script> 
+        <link rel="stylesheet" href="style.css">
+        <title>
+            TODO LIST
+        </title>
+    </head>
+
+    <body>
+
+        <div id="outer">
+            <div id="taskBox">
+                    <div class="app-heading">
+                        <h1>TODO LIST APP</h1>
+                    </div> 
+                <header>
+                    <div id="addtask-list">
+                        <input class="addtask"  id="inputtask" onkeyup="typing()" placeholder="Enter your todo list" data-helloworld="asdasd"/>
+                        <button class="add-btn" id="addbtn"><img src="icons8-add-24.png" alt="ADD"></button>
+                        
+                    </div>
+                    <div id="input-bottom">
+                        <p class="highlight" id="complete-all"><i class="fa-solid fa-check-double"></i>Complete All Tasks</p>
+                        <p class="highlight" id="clear-completed">Clear completed</p>
+                    </div>
+                </header>
+                <main>
+                    <ul id="task-list"> 
+                    </ul>
+                </main>
+                <footer>
+                    <span id="tasks-left" style="word-spacing:0;"> <span id="task-counter">0</span>&nbsp;tasks left</span>
+                    <div>
+                        <p id="all" style="color: black;">All</p>
+                        <p id="uncompleted">Uncompleted</p>
+                        <p id="completed">Completed</p>
+                    </div>
+                </footer>
+            </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
