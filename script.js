@@ -1,12 +1,12 @@
-//List in which tasks are stored
+//Todo list we are storing in tasks[] array
 let tasks =[];
-//getting html elements based on their ID's
+//fetching html element by using ID, we will use getElementById() method to Get the element with the specified id.
 const tasklist = document.getElementById('task-list');
 const addTaskInput = document.getElementById('inputtask');
 const taskCounter = document.getElementById('task-counter');
 const addButton = document.getElementById('addbtn');
 
-//This function is used to add tasks to browser page
+//I have create function addTodoTaskToDOM() function to add task to browser page
 function addTodoTaskToDOM(task){
     const li = document.createElement('li');
 
@@ -14,15 +14,16 @@ function addTodoTaskToDOM(task){
     checkbox to know whether task is completed and delete option*/
     li.innerHTML=`
     <div>
+    <!-- used conditional expression for checkbox -->
     <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} class="custom-checkbox">
     <label for="${task.id}">${task.title}</label>
     </div>
     <i class="delete fa-solid fa-circle-xmark fa-lg" data-id="${task.id}"></i>
     `;
-    tasklist.append(li);
+    tasklist.append(li);  
 }
 
-//This function calls the addTodoTaskToDOM function by passing each tak details as argument
+//This function calls the addTodoTaskToDOM function by passing each task details as argument
 function renderTaskList(){
     tasklist.innerHTML='';
     for(let i=0;i<tasks.length;i++){
@@ -39,7 +40,7 @@ function addTask(task){
     }
 }
 
-//This function is used to delete task and it will be trggered when users clicks on delee button
+//This function is used to delete task and it will be trggered when users clicks on delete button
 function deleteTask(taskId){
     const newTasks = tasks.filter(function(task){
         return task.id != Number(taskId);
@@ -78,7 +79,7 @@ function typing(){
 }
 
 
-//This function will be triggered when user clicks on uncompleted in footer section and display alll uncompleted tasks
+//This function will be triggered when user clicks on uncompleted in footer section and display all uncompleted tasks
 function renderUncompleteList(){
     tasklist.innerHTML='';
     const uncompleted_tasks = tasks.filter(function(task){
@@ -90,7 +91,7 @@ function renderUncompleteList(){
     taskCounter.innerHTML=uncompleted_tasks.length;
 }
 
-//This function will be triggered when user clicks on completed in footer section and display alll completed tasks
+//This function will be triggered when user clicks on completed in footer section and display all completed tasks
 function renderCompleteList(){
     tasklist.innerHTML='';
     const completed_tasks = tasks.filter(function(task){
@@ -119,7 +120,7 @@ function clearCompletedTasks(){
     renderTaskList();
 }
 
-//This function will update the task object withe task name given by user and also add unique ID.
+//This function will update the task object with task name given by user and also add unique ID.
 function handleAddBtn(){
     const text = addTaskInput.value;
     const task ={
